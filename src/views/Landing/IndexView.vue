@@ -15,7 +15,7 @@
         >
         <router-link
           to="/login"
-          class="bg-white border text-white transition rounded p-2 px-4 hover:bg-gray-100"
+          class="bg-white border text-black transition rounded p-2 px-4 hover:bg-gray-100"
           >Acceder</router-link
         >
       </div>
@@ -23,8 +23,6 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
+<script setup></script>
 
 <style></style>
