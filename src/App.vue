@@ -1,5 +1,5 @@
 <template>
-  <div class="parent">
+  <div class="parent bg-slate-100">
     <router-view />
   </div>
 </template>
