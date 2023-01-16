@@ -1,12 +1,14 @@
 <template>
-    <h1>Landing page</h1>
+  <div>
+    <div class="parent bg-slate-100 min-h-screen">
+      
+    </div>
     <router-view></router-view>
+  </div>
 </template>
 
 <script>
-export default {
-    
-};
+export default {};
 </script>
 
 <style></style>

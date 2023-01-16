@@ -4,6 +4,7 @@ import LandingView from "../layouts/LandingView.vue";
 import HomeView from "../views/Explore/HomeView.vue";
 import RegisterView from "../views/Landing/RegisterView.vue";
 import LoginView from "../views/Landing/LoginView.vue";
+import IndexView from "../views/Landing/IndexView.vue";
 
 const routes = [
   {
@@ -11,6 +12,11 @@ const routes = [
     name: "Landing",
     component: LandingView,
     children: [
+      {
+        path: "",
+        name: "Index",
+        component: IndexView,
+      },
       {
         // /home/register
         path: "register",
