@@ -22,7 +22,7 @@ const authModule = {
   actions: {
     async register({ commit }, payload) {
       try {
-        const res = await api.post("/register", payload);
+        const res = await api.post("/auth/register", payload);
         console.log(res.data);
 
         commit("setAccount", res.data.user);
@@ -37,7 +37,7 @@ const authModule = {
     },
     async login({ commit }, payload) {
       try {
-        const res = await api.post("/login", payload);
+        const res = await api.post("/auth/login", payload);
         console.log(res.data);
 
         commit("setAccount", res.data.user);

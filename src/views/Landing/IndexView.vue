@@ -1,8 +1,8 @@
 <template>
   <div
-    class="landing min-h-screen w-full flex flex-col justify-center items-center"
+    class="landing max-h-screen w-full flex flex-col justify-center items-center"
   >
-    <div class="min-h-screen bg-white min-w-[400px] text-center border-2 p-5">
+    <div class="max-h-screen bg-white min-w-[400px] text-center border-2 p-5">
       <h1 class="landing-title font-bold text-sky-500 text-2xl">Bienvenido!</h1>
       <p class="landing-desc mt-4 opacity-70">
         Hola cari! Debes iniciar sesion

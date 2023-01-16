@@ -1,17 +1,19 @@
 <template>
   <div class="login flex justify-center items-center min-h-screen text-center">
-    <form class="login-box">
-      <h1 class="text-sky-500 text-2xl font-bold mb-4">Login</h1>
+    <form class="login-box" @submit="(e) => login(e)">
+      <h1 class="text-sky-500 text-2xl font-bold mb-4">Ingresar</h1>
       <div
         class="box shadow bg-white w-80 border-2 space-y-4 flex flex-col p-5"
       >
         <input
+          v-model="user.username"
           type="text"
           class="input-field border outline-none px-3 py-2"
           placeholder="Username"
         />
         <input
-          type="text"
+          v-model="user.passwor"
+          type="password"
           placeholder="password"
           class="input-field input-field border outline-none px-3 py-2"
         />
@@ -32,9 +34,23 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Login",
+<script setup>
+import { useStore } from "vuex";
+import { reactive } from "vue";
+const store = useStore();
+
+const user = reactive({
+  username: "",
+  password: "",
+});
+
+const login = async () => {
+  e.preventDefault();
+  if (user.username || user.password) {
+    alert("Iniciando sesion");
+  } else {
+    store.dispatch("auth/login");
+  }
 };
 </script>
 

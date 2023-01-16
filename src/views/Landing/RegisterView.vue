@@ -1,7 +1,7 @@
 <template>
   <div class="login flex justify-center items-center min-h-screen text-center">
-    <form @submit="(e)=>register(e)" class="login-box">
-      <h1 class="text-sky-500 text-2xl font-bold mb-4">Register</h1>
+    <form @submit.prevent="register()" class="login-box">
+      <h1 class="text-sky-500 text-2xl font-bold mb-4">Registrarse</h1>
       <div
         class="box shadow bg-white w-80 border-2 space-y-4 flex flex-col p-5"
       >
@@ -13,7 +13,7 @@
         />
         <input
           v-model="user.password"
-          type="text"
+          type="password"
           placeholder="password"
           class="input-field input-field border outline-none px-3 py-2"
         />
@@ -26,7 +26,7 @@
       </div>
       <p class="text-sm font-semibold mt-4">
         Ya tengo una cuenta
-        <router-link to="/Login" class="text-sky-500 underline"
+        <router-link to="/login" class="text-sky-500 underline"
           >Ingresar</router-link
         >
       </p>
@@ -45,11 +45,10 @@ const user = reactive({
 });
 
 const register = async () => {
-  e.preventDefault()
-  if (user.username || user.password) {
-    alert('Creando usuario');
-  }else{
-    store.dispatch('auth/register')
+  if (!user.username || !user.password) {
+    alert("Datos no aceptados");
+  } else {
+    console.log(store.dispatch("auth/register", user));
   }
 };
 </script>

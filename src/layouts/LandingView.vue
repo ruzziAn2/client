@@ -1,9 +1,8 @@
 <template>
   <div>
     <div class="parent bg-slate-100 min-h-screen">
-      
+      <router-view></router-view>
     </div>
-    <router-view></router-view>
   </div>
 </template>
 
