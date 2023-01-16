@@ -1,6 +1,6 @@
 <template>
   <div class="login flex justify-center items-center min-h-screen text-center">
-    <form class="login-box" @submit="(e) => login(e)">
+    <form class="login-box" @submit.prevent="login()">
       <h1 class="text-sky-500 text-2xl font-bold mb-4">Ingresar</h1>
       <div
         class="box shadow bg-white w-80 border-2 space-y-4 flex flex-col p-5"
@@ -12,7 +12,7 @@
           placeholder="Username"
         />
         <input
-          v-model="user.passwor"
+          v-model="user.password"
           type="password"
           placeholder="password"
           class="input-field input-field border outline-none px-3 py-2"
@@ -45,11 +45,10 @@ const user = reactive({
 });
 
 const login = async () => {
-  e.preventDefault();
-  if (user.username || user.password) {
-    alert("Iniciando sesion");
+  if (!user.username || !user.password) {
+    alert("Datos no aceptados");
   } else {
-    store.dispatch("auth/login");
+    store.dispatch("auth/login", user);
   }
 };
 </script>

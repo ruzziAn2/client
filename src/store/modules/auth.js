@@ -28,7 +28,7 @@ const authModule = {
         commit("setAccount", res.data.user);
         commit("setToken", res.data.token);
 
-        Cookies.set("account", res.data.user);
+        Cookies.set("account", JSON.stringify(res.data.user));
         Cookies.set("token", res.data.token);
         console.log(res.data);
       } catch (error) {
@@ -43,7 +43,7 @@ const authModule = {
         commit("setAccount", res.data.user);
         commit("setToken", res.data.token);
 
-        Cookies.set("account", res.data.user);
+        Cookies.set("account", JSON.stringify(res.data.user));
         Cookies.set("token", res.data.token);
         console.log(res.data);
       } catch (error) {

@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
+import Cookies from "js-cookie";
 import ExploreView from "../layouts/exploreView.vue";
 import LandingView from "../layouts/LandingView.vue";
 import HomeView from "../views/Explore/HomeView.vue";
@@ -30,12 +31,26 @@ const routes = [
         component: LoginView,
       },
     ],
+    BeforeEnter: (to, from, next) => {
+      if (Cookies.get("token")) {
+        window.location.href = "/explore";
+      } else {
+        next();
+      }
+    },
   },
   {
     path: "/explore",
     name: "Explore",
     component: ExploreView,
     children: [{ path: "", name: "Home", component: HomeView }],
+    BeforeEnter: (to, from, next) => {
+      if (!Cookies.get("token")) {
+        window.location.href = "/";
+      } else {
+        next();
+      }
+    },
   },
 ];
 
