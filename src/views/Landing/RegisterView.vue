@@ -9,7 +9,13 @@
           v-model="user.username"
           type="text"
           class="input-field border outline-none px-3 py-2"
-          placeholder="Username"
+          placeholder="username"
+        />
+        <input
+          v-model="user.email"
+          type="email"
+          placeholder="email"
+          class="input-field input-field border outline-none px-3 py-2"
         />
         <input
           v-model="user.password"
@@ -42,13 +48,14 @@ const store = useStore();
 const user = reactive({
   username: "",
   password: "",
+  email: "",
 });
 
 const register = async () => {
-  if (!user.username || !user.password) {
+  if (!user.username || !user.password || !user.email) {
     alert("Datos no aceptados");
   } else {
-    console.log(store.dispatch("auth/register", user));
+    store.dispatch("auth/register", user);
   }
 };
 </script>
