@@ -24,7 +24,8 @@
           class="input-field input-field border outline-none px-3 py-2"
         />
         <button
-          class="button bg-sky-600 transition border border-sky-500 text-white rounded p-2 px-4 hover:bg-sky-50 hover:text-black hover:border-sky-600"
+          :disabled="loading"
+          class="button bg-sky-600 transition border border-sky-500 text-white rounded p-2 px-4 hover:bg-sky-50 hover:text-black hover:border-sky-600 disabled:bg-gray-200 disabled:cursor-default disabled:border-none"
           type="submit"
         >
           Registrarse
@@ -42,7 +43,7 @@
 
 <script setup>
 import { useStore } from "vuex";
-import { reactive } from "vue";
+import { reactive, computed } from "vue";
 const store = useStore();
 
 const user = reactive({
@@ -51,8 +52,14 @@ const user = reactive({
   email: "",
 });
 
+const loading = computed(() => {
+  return store.state.loading;
+});
+
 const register = async () => {
+  // store.commit("setLoading", true, { root: true });
   if (!user.username || !user.password || !user.email) {
+    store.commit("setLoading", false, { root: true });
     alert("Datos no aceptados");
   } else {
     store.dispatch("auth/register", user);
