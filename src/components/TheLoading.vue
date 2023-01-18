@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="loading-spinner fixed top-2 left-2 " >
+  <div class="loading-spinner fixed top-2 left-2">
     <div class="lds-spinner">
       <div></div>
       <div></div>
@@ -19,13 +19,16 @@
   </div>
 </template>
 <style>
+.loading-spinner {
+  z-index: 99999999999999999999;
+}
 .lds-spinner {
   color: official;
   display: inline-block;
   position: relative;
   width: 50px;
   height: 50px;
-  transform: scale(0.5)
+  transform: scale(0.5);
 }
 .lds-spinner div {
   transform-origin: 40px 40px;

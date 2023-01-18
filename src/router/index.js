@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import ExploreView from "../layouts/exploreView.vue";
 import LandingView from "../layouts/LandingView.vue";
 import HomeView from "../views/Explore/HomeView.vue";
+import AccountView from "../views/Explore/AccountView.vue";
 import RegisterView from "../views/Landing/RegisterView.vue";
 import LoginView from "../views/Landing/LoginView.vue";
 import IndexView from "../views/Landing/IndexView.vue";
@@ -43,7 +44,10 @@ const routes = [
     path: "/explore",
     name: "Explore",
     component: ExploreView,
-    children: [{ path: "", name: "Home", component: HomeView }],
+    children: [
+      { path: "", name: "Home", component: HomeView },
+      { path: "account", name: "Account", component: AccountView },
+    ],
     BeforeEnter: (to, from, next) => {
       if (!Cookies.get("token")) {
         window.location.href = "/";
